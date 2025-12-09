@@ -154,12 +154,35 @@ let productPricesHT = [89.90, 49.90, 779.90, 79.90];
 console.log("Nombre de produits :", productNames.length);
 
 function afficherProduitsConsole() {
-    productNames.forEach(element, index => {
+    productNames.forEach(element => {
+        let index = productNames.indexOf(element);
         let priceTTC = calculatePriceTTC(productPricesHT[index]);
         let priceFormatted = formatPrice(priceTTC);
         console.log(`Produit : ${element} — Prix : ${priceFormatted}`);
     });
 }
 
+// --- Correction ---
+// function afficherProduitsConsole() {
+//     productNames.forEach((element,index) => {
+//         let priceHT = productPricesHT[index];
+//         let priceTTC = calculatePriceTTC(priceHT);
+//         let priceFormatted = formatPrice(priceTTC);
+//         console.log(`Produit ${index+1} : ${element} — Prix : ${priceFormatted}`);
+//     });
+// }
+
 afficherProduitsConsole();
+
+// - créer tableau (productNames)
+// - créer tableau (productPricesHT)
+// - afficher dans la console la longueur du tableau (le nombre d'éléments à l'intérieur)
+// - définir fonction (afficherProduitsConsole()):
+//   - `Pour chaque nom dans mon tableau productNames:`
+//     (indice : il faudra récupérer l'index de chaque nom en plus. Donc on doit récupérer 2 informations.)
+//       - récupérer prix HT via `prixHT[index]`
+//       - calculer le prix TTC (avec une fonction créée plus tôt dans nos exercices)
+//       - formatter prix (avec une fonction créée plus tôt dans nos exercices)
+//       - afficher dans la console la phrase : "Produit : Nom — Prix : XX,XX €"
+// - appeler la fonction
 
